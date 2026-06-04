@@ -4,6 +4,7 @@ const navItems = document.querySelectorAll(".nav-links a");
 const sections = document.querySelectorAll("main section[id]");
 const year = document.querySelector("#year");
 const optionalImages = document.querySelectorAll("[data-optional-image]");
+const copyButtons = document.querySelectorAll("[data-copy]");
 const revealTargets = document.querySelectorAll(
   ".hero-copy, .profile-card, .section-heading, #about .narrow, .process-step, .skill-grid .card, .project-card, .contact-card, .portfolio-hero, .portfolio-overview article, .portfolio-section-heading, .portfolio-section > p, .portfolio-card-grid article, .timeline-list article, .problem-flow article, .tech-logo-grid article"
 );
@@ -40,6 +41,39 @@ navItems.forEach((item) => {
     navLinks.classList.remove("open");
     navToggle?.setAttribute("aria-expanded", "false");
     navToggle?.setAttribute("aria-label", "메뉴 열기");
+  });
+});
+
+copyButtons.forEach((button) => {
+  const originalText = button.textContent.trim();
+
+  button.addEventListener("click", async () => {
+    const text = button.dataset.copy;
+    if (!text) return;
+
+    try {
+      if (navigator.clipboard) {
+        await navigator.clipboard.writeText(text);
+      } else {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        textarea.remove();
+      }
+      button.classList.add("copied");
+      button.textContent = "Email copied";
+      window.setTimeout(() => {
+        button.classList.remove("copied");
+        button.innerHTML = "<span>Email:</span> mymin8724@gmail.com";
+      }, 1600);
+    } catch {
+      button.textContent = originalText;
+    }
   });
 });
 

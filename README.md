@@ -91,5 +91,5 @@ HTML, CSS, JavaScript로만 만든 정적 사이트라 GitHub Pages에서 바로
 
 ## 연락처
 
-- 이메일: mymin8724@gmail.com
+- Email: mymin8724@gmail.com
 - GitHub: https://github.com/PureJuly

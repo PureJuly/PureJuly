@@ -356,6 +356,8 @@ p {
 .project-card p,
 .contact-card p {
   color: var(--text-muted);
+  line-height: 1.82;
+  word-break: keep-all;
 }
 
 #process .section-heading {
@@ -520,6 +522,10 @@ p {
   font-size: clamp(1.25rem, 2vw, 1.55rem);
   line-height: 1.35;
   word-break: keep-all;
+}
+
+.project-card p {
+  line-height: 1.72;
 }
 
 .project-more {
@@ -909,17 +915,34 @@ p {
   margin-top: 20px;
 }
 
-.contact-links a {
+.contact-links a,
+.contact-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+  padding: 0 12px;
+  border: 1px solid rgba(37, 99, 235, 0.18);
+  border-radius: 999px;
+  background: var(--accent-soft);
   color: var(--accent);
+  font: inherit;
   font-weight: 700;
   word-break: break-word;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
-.contact-links span {
-  color: var(--text);
+.contact-links span,
+.contact-copy span {
+  color: var(--accent);
 }
 
-.contact-links a:hover {
+.contact-links a:hover,
+.contact-copy:hover,
+.contact-copy.copied {
+  border-color: rgba(37, 99, 235, 0.34);
+  background: #dbeafe;
   color: var(--accent-dark);
 }
 
