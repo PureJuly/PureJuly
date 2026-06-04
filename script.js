@@ -69,7 +69,7 @@ copyButtons.forEach((button) => {
       button.textContent = "Email copied";
       window.setTimeout(() => {
         button.classList.remove("copied");
-        button.innerHTML = "<span>Email:</span> <strong>mymin8724@gmail.com</strong>";
+        button.innerHTML = "<span>Email:</span> mymin8724@gmail.com";
       }, 1600);
     } catch {
       button.textContent = originalText;
