@@ -917,6 +917,7 @@ p {
 
 .contact-links a,
 .contact-copy {
+  appearance: none;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -928,6 +929,7 @@ p {
   color: var(--accent);
   font: inherit;
   font-weight: 700;
+  line-height: 1;
   word-break: break-word;
   cursor: pointer;
   transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
