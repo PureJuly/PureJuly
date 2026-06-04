@@ -31,6 +31,11 @@ a {
   text-decoration: none;
 }
 
+.email-address {
+  color: var(--accent);
+  font-weight: 700;
+}
+
 .pdf-page {
   max-width: 820px;
   margin: 0 auto;
