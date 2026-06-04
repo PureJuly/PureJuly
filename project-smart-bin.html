@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="스마트 분리수거 쓰레기통 프로젝트 상세">
+  <title>스마트 분리수거 쓰레기통 | 안효민 포트폴리오</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="detail-page">
+    <section class="section">
+      <div class="container detail-layout">
+        <a class="detail-back" href="index.html#projects">프로젝트 목록으로 돌아가기</a>
+
+        <section class="portfolio-hero">
+          <div class="portfolio-hero-copy">
+            <p class="section-kicker">첫 번째 프로젝트</p>
+            <h1>스마트 분리수거 쓰레기통</h1>
+            <p>
+              카메라 객체 인식으로 쓰레기 종류를 판단하고, RFID 인증 후 알맞은 쓰레기통을 자동 개폐하는 시스템입니다.
+              개발 포트폴리오에서 중요한 프로젝트 목적, 사용 기술, 담당 역할, 문제 해결 과정이 한눈에 보이도록 정리했습니다.
+            </p>
+          </div>
+          <div class="image-frame portfolio-hero-image">
+            <img src="images/project-1.jpg" alt="스마트 분리수거 쓰레기통 시연 장면" data-optional-image>
+            <span>이미지 준비 중</span>
+          </div>
+        </section>
+
+        <section class="portfolio-overview">
+          <article>
+            <span>프로젝트 기간</span>
+            <strong>2026.02.26 - 2026.03.06</strong>
+          </article>
+          <article>
+            <span>작업 인원</span>
+            <strong>4명</strong>
+          </article>
+          <article>
+            <span>나의 역할</span>
+            <strong>객체 인식 학습, RFID·블루투스 통신, DB/서버, 대시보드 연동</strong>
+          </article>
+        </section>
+
+        <section class="portfolio-section">
+          <div class="portfolio-section-heading">
+            <p class="section-kicker">Overview</p>
+            <h2>프로젝트 개요</h2>
+          </div>
+          <p>
+            공동주택이나 기숙사처럼 여러 사람이 함께 사용하는 공간에서는 잘못된 분리배출이 반복되기 쉽습니다.
+            이 프로젝트는 사용자가 쓰레기를 올리면 HuskyLens 카메라가 종류를 인식하고,
+            RFID 인증을 거쳐 해당 쓰레기통을 자동으로 여는 구조로 설계했습니다.
+            사용 기록과 쓰레기통 상태는 Raspberry Pi 서버와 웹 대시보드에서 확인할 수 있도록 구성했습니다.
+          </p>
+        </section>
+
+        <section class="portfolio-section">
+          <div class="portfolio-section-heading">
+            <p class="section-kicker">My Role</p>
+            <h2>내가 맡은 작업</h2>
+          </div>
+          <div class="portfolio-card-grid">
+            <article>
+              <strong>객체 인식 데이터셋 준비 및 학습</strong>
+              <p>
+                플라스틱, 종이, 일반쓰레기를 구분할 수 있도록 HuskyLens 학습 데이터를 준비하고
+                인식 결과가 실제 개폐 흐름으로 이어지는지 테스트했습니다.
+              </p>
+            </article>
+            <article>
+              <strong>RFID·블루투스 통신 기능 개발</strong>
+              <p>
+                RFID 태그 UID를 확인하는 흐름을 만들고, Arduino와 Raspberry Pi가 HC-06 블루투스로
+                인증 결과와 동작 데이터를 주고받도록 연결했습니다.
+              </p>
+            </article>
+            <article>
+              <strong>인증 DB 및 래퍼 서버 개발</strong>
+              <p>
+                SQLite DB에 사용자 인증 정보와 사용 기록을 저장하고,
+                장치 제어 코드가 DB에 접근할 수 있도록 래퍼 서버 구조를 구성했습니다.
+              </p>
+            </article>
+            <article>
+              <strong>웹 대시보드 서버 개발</strong>
+              <p>
+                관리자 입장에서 로그 조회, 상태 확인, 사용자 관리가 가능하도록 웹 대시보드 서버를 개발하고
+                개별 기능을 통합하는 과정에서 디버깅을 진행했습니다.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="portfolio-section">
+          <div class="portfolio-section-heading">
+            <p class="section-kicker">Flow</p>
+            <h2>구현 흐름</h2>
+          </div>
+          <div class="timeline-list">
+            <article>
+              <span>01</span>
+              <div>
+                <strong>인증과 입력 대기</strong>
+                <p>RFID 태그 UID를 확인한 뒤, 인증된 사용자인 경우에만 쓰레기 분류 단계로 넘어가도록 흐름을 구성했습니다.</p>
+              </div>
+            </article>
+            <article>
+              <span>02</span>
+              <div>
+                <strong>쓰레기 종류 인식</strong>
+                <p>HuskyLens가 인식한 결과를 기준으로 플라스틱, 종이, 일반쓰레기 중 어떤 쓰레기통을 열지 판단했습니다.</p>
+              </div>
+            </article>
+            <article>
+              <span>03</span>
+              <div>
+                <strong>개폐·포화 상태 기록</strong>
+                <p>Arduino가 서보 모터와 초음파 센서를 제어하고, Raspberry Pi 서버가 사용 로그와 상태 정보를 저장하도록 연결했습니다.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="portfolio-section">
+          <div class="portfolio-section-heading">
+            <p class="section-kicker">Problem Solving</p>
+            <h2>문제 해결 과정</h2>
+          </div>
+          <div class="problem-flow">
+            <article>
+              <span>문제</span>
+              <p>
+                객체 인식 모델이 플라스틱, 종이, 일반쓰레기만 학습했을 때
+                쓰레기가 없는 빈 공간도 특정 쓰레기로 잘못 판단하는 문제가 있었습니다.
+              </p>
+            </article>
+            <article>
+              <span>해결</span>
+              <p>
+                “쓰레기 없음” 상태를 별도 클래스로 학습시켜 오인식을 줄였고,
+                해당 결과를 동작 종료 조건으로 활용해 불필요한 개폐가 발생하지 않도록 조정했습니다.
+              </p>
+            </article>
+            <article>
+              <span>추가 개선</span>
+              <p>
+                좁은 쓰레기통 내부에서 초음파 센서값이 흔들리는 문제는 임계값을 분리하고
+                센서 안정화 대기 로직을 두는 방식으로 개선 방향을 잡았습니다.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="portfolio-section">
+          <div class="portfolio-section-heading">
+            <p class="section-kicker">Stack</p>
+            <h2>사용 기술</h2>
+          </div>
+          <div class="tech-logo-grid">
+            <article>
+              <img src="https://cdn.simpleicons.org/raspberrypi/A22846" alt="Raspberry Pi 로고">
+              <strong>Raspberry Pi</strong>
+              <p>RFID 인증 결과를 처리하고 SQLite DB, 웹 대시보드 서버, Arduino 통신 흐름을 연결하는 중심 장치로 활용했습니다.</p>
+            </article>
+            <article>
+              <img src="https://cdn.simpleicons.org/arduino/00878F" alt="Arduino 로고">
+              <strong>Arduino</strong>
+              <p>서보 모터와 초음파 센서를 제어하고, 쓰레기통 개폐와 포화 상태 감지를 담당하는 하드웨어 제어부로 사용했습니다.</p>
+            </article>
+            <article>
+              <img src="https://cdn.simpleicons.org/bluetooth/0082FC" alt="Bluetooth 로고">
+              <strong>Bluetooth</strong>
+              <p>Arduino와 Raspberry Pi 사이에서 분류 결과, 인증 결과, 동작 상태를 주고받기 위한 무선 통신 방식으로 구성했습니다.</p>
+            </article>
+            <article>
+              <img src="https://cdn.simpleicons.org/sqlite/003B57" alt="SQLite 로고">
+              <strong>SQLite</strong>
+              <p>RFID 사용자 정보와 사용 로그를 저장하고, 대시보드에서 조회할 수 있는 데이터 기반으로 활용했습니다.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="portfolio-section">
+          <div class="portfolio-section-heading">
+            <p class="section-kicker">Result</p>
+            <h2>결과와 성장 포인트</h2>
+          </div>
+          <p>
+            객체 인식, RFID 인증, 블루투스 통신, DB, 웹 대시보드가 하나의 흐름으로 연결되는 시연 시스템을 완성했습니다.
+            이 과정에서 장치가 정상 동작하지 않을 때 카메라 인식, RFID 통신, 블루투스 송수신, DB 저장 위치를 나누어 확인하는 습관을 얻었습니다.
+            필드엔지니어 업무에서도 현장 장비와 소프트웨어 흐름을 함께 보고 문제 범위를 좁히는 태도로 연결할 수 있는 경험입니다.
+          </p>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

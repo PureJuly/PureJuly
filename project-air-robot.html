@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="공기질 연동 자율주행 공기청정 로봇 프로젝트 상세">
+  <title>공기질 연동 자율주행 공기청정 로봇 | 안효민 포트폴리오</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="detail-page">
+    <section class="section">
+      <div class="container detail-layout">
+        <a class="detail-back" href="index.html#projects">프로젝트 목록으로 돌아가기</a>
+
+        <section class="portfolio-hero">
+          <div class="portfolio-hero-copy">
+            <p class="section-kicker">두 번째 프로젝트</p>
+            <h1>공기질 연동 자율주행 공기청정 로봇</h1>
+            <p>
+              미세먼지 센서, MQTT 통신, ROS2 기반 자율주행, 웹 대시보드를 연결한 실내 공기질 관리 시스템입니다.
+              팀 프로젝트 전체 구조를 설명하되, 제가 맡은 하드웨어 조립, 배선 점검, 통합 테스트, 시연 준비 중심으로 정리했습니다.
+            </p>
+          </div>
+          <div class="image-frame portfolio-hero-image">
+            <img src="images/project-2.jpg" alt="공기질 연동 자율주행 공기청정 로봇 시연 장면" data-optional-image>
+            <span>이미지 준비 중</span>
+          </div>
+        </section>
+
+        <section class="portfolio-overview">
+          <article>
+            <span>프로젝트 기간</span>
+            <strong>2026.04.27 - 2026.05.12</strong>
+          </article>
+          <article>
+            <span>작업 인원</span>
+            <strong>4명</strong>
+          </article>
+          <article>
+            <span>나의 역할</span>
+            <strong>센서·전원부·모듈 조립, 배선 점검, 통합 테스트, 시연 영상 제작</strong>
+          </article>
+        </section>
+
+        <section class="portfolio-section">
+          <div class="portfolio-section-heading">
+            <p class="section-kicker">Overview</p>
+            <h2>프로젝트 개요</h2>
+          </div>
+          <p>
+            고정형 공기청정기는 특정 구역의 공기질 변화를 직접 찾아가 대응하기 어렵습니다.
+            이 프로젝트는 PMS7003 미세먼지 센서가 PM1.0, PM2.5, PM10 값을 측정하고,
+            MQTT를 통해 데이터를 전달하면 TurtleBot3가 오염 구역으로 이동해 청정 동작을 수행하는 구조로 설계했습니다.
+            로봇 상태와 공기질 데이터는 웹 대시보드에서 확인할 수 있도록 구성했습니다.
+          </p>
+        </section>
+
+        <section class="portfolio-section">
+          <div class="portfolio-section-heading">
+            <p class="section-kicker">My Role</p>
+            <h2>내가 맡은 작업</h2>
+          </div>
+          <div class="portfolio-card-grid">
+            <article>
+              <strong>센서·전원부·모듈 조립</strong>
+              <p>
+                Arduino, ESP-01, PMS7003을 활용한 공기질 측정 모듈을 조립하고,
+                전원부와 센서 연결 상태를 확인해 통합 테스트가 가능한 상태로 준비했습니다.
+              </p>
+            </article>
+            <article>
+              <strong>배선 점검과 하드웨어 상태 확인</strong>
+              <p>
+                센서 데이터가 정상적으로 수집되지 않거나 통신 흐름이 끊길 때,
+                먼저 전원, 배선, 모듈 연결 상태를 확인하며 문제 범위를 좁혔습니다.
+              </p>
+            </article>
+            <article>
+              <strong>시스템 유지보수 및 문제 대응</strong>
+              <p>
+                시연 준비 과정에서 하드웨어 상태를 반복 확인하고,
+                로봇 주행과 센서 데이터 흐름에 영향을 줄 수 있는 요소를 점검했습니다.
+              </p>
+            </article>
+            <article>
+              <strong>프로젝트 시연 영상 제작</strong>
+              <p>
+                오염 감지, 로봇 이동, 청정 동작, 복귀 흐름이 전달되도록 시연 장면을 구성하고
+                발표용 영상으로 정리했습니다.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="portfolio-section">
+          <div class="portfolio-section-heading">
+            <p class="section-kicker">Flow</p>
+            <h2>시스템 동작 흐름</h2>
+          </div>
+          <div class="timeline-list">
+            <article>
+              <span>01</span>
+              <div>
+                <strong>공기질 측정과 전송</strong>
+                <p>PMS7003 센서가 미세먼지 값을 측정하고 ESP-01 모듈을 통해 MQTT 브로커로 데이터를 전송합니다.</p>
+              </div>
+            </article>
+            <article>
+              <span>02</span>
+              <div>
+                <strong>오염 판단과 로봇 이동</strong>
+                <p>PM2.5 기준치를 넘으면 로봇이 오염 구역으로 이동하고, 주행 상태는 대시보드에서 확인할 수 있습니다.</p>
+              </div>
+            </article>
+            <article>
+              <span>03</span>
+              <div>
+                <strong>청정 동작과 복귀</strong>
+                <p>오염 구역 도착 후 청정 동작을 수행하고, 작업이 끝나면 홈 위치로 복귀하는 흐름을 시연했습니다.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="portfolio-section">
+          <div class="portfolio-section-heading">
+            <p class="section-kicker">Problem Solving</p>
+            <h2>문제 해결 과정</h2>
+          </div>
+          <div class="problem-flow">
+            <article>
+              <span>문제</span>
+              <p>
+                ROS2, IoT 센서, 웹 대시보드가 동시에 연결되는 구조라
+                작은 배선 문제나 센서 연결 오류도 전체 시연 흐름에 영향을 줄 수 있었습니다.
+              </p>
+            </article>
+            <article>
+              <span>해결</span>
+              <p>
+                통합 테스트에서는 먼저 전원부, 센서, ESP-01 모듈, 배선 상태를 확인하고
+                이후 MQTT 데이터 흐름과 로봇 동작 흐름을 확인하는 순서로 문제 범위를 좁혔습니다.
+              </p>
+            </article>
+            <article>
+              <span>배운 점</span>
+              <p>
+                로봇 시스템은 소프트웨어 로직뿐 아니라 센서, 전원, 배선 상태가 안정성에 직접 영향을 준다는 점을 배웠습니다.
+                현장 점검에서는 기본 연결 상태를 먼저 확인하는 절차가 중요하다는 것을 체감했습니다.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="portfolio-section">
+          <div class="portfolio-section-heading">
+            <p class="section-kicker">Stack</p>
+            <h2>사용 기술</h2>
+          </div>
+          <div class="tech-logo-grid">
+            <article>
+              <img src="https://cdn.simpleicons.org/ros/22314E" alt="ROS 로고">
+              <strong>ROS2</strong>
+              <p>TurtleBot3 주행, 상태 관리, 센서 데이터 흐름을 연결하는 로봇 시스템 기반으로 사용했습니다.</p>
+            </article>
+            <article>
+              <img src="https://cdn.simpleicons.org/mqtt/660066" alt="MQTT 로고">
+              <strong>MQTT</strong>
+              <p>미세먼지 센서 데이터와 로봇 상태를 서로 다른 모듈이 주고받을 수 있도록 연결하는 경량 메시지 통신으로 활용했습니다.</p>
+            </article>
+            <article>
+              <img src="https://cdn.simpleicons.org/arduino/00878F" alt="Arduino 로고">
+              <strong>Arduino</strong>
+              <p>PMS7003 센서와 ESP-01 모듈을 연결해 공기질 측정 장치를 구성하고, 전원과 배선 상태를 점검했습니다.</p>
+            </article>
+            <article>
+              <img src="https://cdn.simpleicons.org/springboot/6DB33F" alt="Spring Boot 로고">
+              <strong>Spring Boot</strong>
+              <p>센서 이력과 로봇 상태를 웹에서 확인할 수 있는 대시보드 서버 구성에 사용되었습니다.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="portfolio-section">
+          <div class="portfolio-section-heading">
+            <p class="section-kicker">Result</p>
+            <h2>결과와 성장 포인트</h2>
+          </div>
+          <p>
+            짧은 프로젝트 기간 동안 센서 모듈과 로봇 동작 상태를 점검하며 최종 시연이 안정적으로 진행될 수 있도록 준비했습니다.
+            제 역할은 전체 알고리즘 구현보다 하드웨어 상태 확인과 통합 테스트 안정화에 가까웠습니다.
+            이 경험은 필드엔지니어 업무에서 필요한 장비 점검, 문제 범위 분리, 시연 전 검증, 고객에게 설명 가능한 기록 정리에 직접 연결됩니다.
+          </p>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

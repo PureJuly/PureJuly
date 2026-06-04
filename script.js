@@ -4,6 +4,9 @@ const navItems = document.querySelectorAll(".nav-links a");
 const sections = document.querySelectorAll("main section[id]");
 const year = document.querySelector("#year");
 const optionalImages = document.querySelectorAll("[data-optional-image]");
+const revealTargets = document.querySelectorAll(
+  ".hero-copy, .profile-card, .section-heading, #about .narrow, .process-step, .skill-grid .card, .project-card, .contact-card, .portfolio-hero, .portfolio-overview article, .portfolio-section-heading, .portfolio-section > p, .portfolio-card-grid article, .timeline-list article, .problem-flow article, .tech-logo-grid article"
+);
 
 if (year) {
   year.textContent = new Date().getFullYear();
@@ -57,3 +60,25 @@ const observer = new IntersectionObserver(
 );
 
 sections.forEach((section) => observer.observe(section));
+
+revealTargets.forEach((target, index) => {
+  target.classList.add("reveal");
+  target.style.setProperty("--reveal-delay", `${Math.min(index % 4, 3) * 80}ms`);
+});
+
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      entry.target.classList.add("visible");
+      revealObserver.unobserve(entry.target);
+    });
+  },
+  {
+    rootMargin: "0px 0px -12% 0px",
+    threshold: 0.12,
+  }
+);
+
+revealTargets.forEach((target) => revealObserver.observe(target));
