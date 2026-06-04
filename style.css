@@ -938,6 +938,11 @@ p {
   color: var(--accent);
 }
 
+.contact-copy strong {
+  color: var(--accent);
+  font-weight: 800;
+}
+
 .contact-links a:hover,
 .contact-copy:hover,
 .contact-copy.copied {
