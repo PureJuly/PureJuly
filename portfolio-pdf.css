@@ -1,0 +1,253 @@
+:root {
+  --text: #202833;
+  --muted: #5f6c7b;
+  --line: #d7e0ea;
+  --surface: #ffffff;
+  --soft: #f3f6fa;
+  --accent: #2563eb;
+  --accent-soft: #eaf1ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@page {
+  size: A4;
+  margin: 14mm;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: var(--text);
+  font-family: Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  line-height: 1.65;
+}
+
+.pdf-page {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.pdf-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 150px;
+  gap: 28px;
+  align-items: center;
+  padding-bottom: 22px;
+  border-bottom: 2px solid var(--text);
+}
+
+.profile {
+  width: 150px;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 3.2rem;
+  line-height: 1.05;
+}
+
+h2 {
+  margin-bottom: 12px;
+  font-size: 1.55rem;
+  line-height: 1.25;
+}
+
+h3 {
+  margin-bottom: 12px;
+  font-size: 1.18rem;
+}
+
+h4 {
+  margin-bottom: 7px;
+  font-size: 0.98rem;
+  line-height: 1.4;
+}
+
+.role {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.intro,
+.project-summary,
+.pdf-section p,
+.card p,
+.plain-list {
+  color: var(--muted);
+}
+
+.intro {
+  max-width: 680px;
+  margin-top: 18px;
+  font-size: 1rem;
+}
+
+.pdf-section {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.pdf-section.compact {
+  padding: 20px 0 0;
+  border-bottom: 0;
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.78fr);
+  gap: 28px;
+}
+
+.plain-list {
+  display: grid;
+  gap: 6px;
+  padding: 0;
+  list-style: none;
+}
+
+.card-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.card-grid.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.card-grid.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.card {
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(37, 99, 235, 0.24);
+  border-radius: 8px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.tag-list li {
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--soft);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.page-break {
+  break-before: page;
+}
+
+.pdf-project {
+  padding-top: 4px;
+}
+
+.project-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 22px;
+  align-items: center;
+  padding-bottom: 18px;
+  border-bottom: 2px solid var(--text);
+}
+
+.project-head img {
+  width: 260px;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--soft);
+}
+
+.project-summary {
+  font-size: 1rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.7fr 1.6fr;
+  gap: 10px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.info-grid div {
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--soft);
+}
+
+.info-grid strong,
+.info-grid span {
+  display: block;
+}
+
+.info-grid strong {
+  margin-bottom: 5px;
+  color: var(--accent);
+  font-size: 0.82rem;
+}
+
+.info-grid span {
+  color: var(--text);
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+@media print {
+  .card,
+  .info-grid div,
+  .project-head img,
+  .profile {
+    break-inside: avoid;
+  }
+}

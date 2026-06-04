@@ -6,6 +6,8 @@
 
 포트폴리오 주소: https://purejuly.github.io/PureJuly/
 
+PDF 파일: `안효민_포트폴리오.pdf`
+
 ## 프로젝트
 
 ### 1. 스마트 분리수거 쓰레기통
@@ -84,6 +86,7 @@ HTML, CSS, JavaScript로만 만든 정적 사이트라 GitHub Pages에서 바로
 - 역량
 - 프로젝트 2개
 - 프로젝트 상세 페이지
+- PDF 제출용 페이지
 - 연락처
 
 ## 연락처
