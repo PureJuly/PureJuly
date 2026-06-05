@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>사용자 관리</h2>
+
+    <div class="form-section">
+        <h3>사용자 추가</h3>
+        <form method="POST" action="{{ url_for('manage_user') }}">
+            <input type="hidden" name="action" value="add">
+            <label>이름: <input type="text" name="name" required></label>
+            <label>RFID 키: <input type="text" name="key" required></label>
+            <button type="submit">추가</button>
+        </form>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>사용자 ID</th>
+                <th>이름</th>
+                <th>RFID 키</th>
+                <th>관리</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.key }}</td>
+                <td>
+                    <form method="POST" action="{{ url_for('manage_user') }}" style="display:inline-block; margin-right: 10px;">
+                        <input type="hidden" name="action" value="edit">
+                        <input type="hidden" name="id" value="{{ user.id }}">
+                        <input type="text" name="name" placeholder="새 이름" style="width: 80px;">
+                        <input type="text" name="key" placeholder="새 RFID 키" style="width: 100px;">
+                        <button type="submit">수정</button>
+                    </form>
+
+                    <form method="POST" action="{{ url_for('manage_user') }}" style="display:inline-block;" onsubmit="return confirm('정말 삭제하시겠습니까?');">
+                        <input type="hidden" name="action" value="delete">
+                        <input type="hidden" name="id" value="{{ user.id }}">
+                        <button type="submit" style="color: red;">삭제</button>
+                    </form>
+                </td>
+            </tr>
+            {% else %}
+            <tr><td colspan="4">등록된 사용자가 없습니다.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

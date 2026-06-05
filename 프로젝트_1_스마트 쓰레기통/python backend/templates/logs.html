@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>시스템 로그</h2>
+    
+    <form method="GET" action="{{ url_for('logs') }}" style="margin-bottom: 10px;">
+        <label>분류 필터:
+            <select name="type">
+                <option value="">전체</option>
+                <option value="open" {% if log_type == 'open' %}selected{% endif %}>열림 (open)</option>
+                <option value="close" {% if log_type == 'close' %}selected{% endif %}>닫힘 (close)</option>
+                <option value="full" {% if log_type == 'full' %}selected{% endif %}>가득 참 (full)</option>
+                <option value="empty" {% if log_type == 'empty' %}selected{% endif %}>비워짐 (empty)</option>
+                <option value="user_update" {% if log_type == 'user_update' %}selected{% endif %}>사용자 데이터 수정 (user_update)</option>
+            </select>
+        </label>
+        <button type="submit">검색</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>로그 ID</th>
+                <th>발생 시간</th>
+                <th>유형</th>
+                <th>사용자 ID</th>
+                <th>상세 내역</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for log in logs %}
+            <tr>
+                <td>{{ log.id }}</td>
+                <td>{{ log.created_at }}</td>
+                <td>{{ log.type }}</td>
+                <td>{{ log.user if log.user else '-' }}</td>
+                <td>{{ log.description if log.description else '-' }}</td>
+            </tr>
+            {% else %}
+            <tr><td colspan="5">조회된 로그가 없습니다.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div style="margin-top: 15px;">
+        {% if page > 1 %}
+            <a href="{{ url_for('logs', page=page-1, type=log_type) }}">이전 페이지</a>
+        {% endif %}
+        <span style="margin: 0 10px;">현재 페이지: {{ page }}</span>
+        <a href="{{ url_for('logs', page=page+1, type=log_type) }}">다음 페이지</a>
+    </div>
+{% endblock %}
