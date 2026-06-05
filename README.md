@@ -100,6 +100,7 @@ PureJuly/
 ├── style.css
 └── 안효민_포트폴리오.pdf
 ```
+* 상위폴더에서 IdeaProjects.zip, group4_ws.zip는 두번째 프로젝트 입니다.
 
 ## 실행
 
