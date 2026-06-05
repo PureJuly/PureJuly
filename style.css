@@ -761,6 +761,23 @@ p {
   word-break: keep-all;
 }
 
+.portfolio-video-frame {
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #111827;
+  box-shadow: var(--shadow);
+}
+
+.portfolio-video-frame video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #111827;
+}
+
 .portfolio-card-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
