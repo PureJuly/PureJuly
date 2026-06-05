@@ -57,17 +57,48 @@ PDF 파일: `안효민_포트폴리오.pdf`
 ## 파일 구조
 
 ```text
-.
-├── index.html
-├── project-smart-bin.html
-├── project-air-robot.html
-├── style.css
-├── script.js
+PureJuly/
 ├── images/
 │   ├── profile.jpg
 │   ├── project-1.jpg
 │   └── project-2.jpg
-└── README.md
+│
+├── 프로젝트_1_스마트 쓰레기통/
+│   ├── arduino/
+│   │   └── smart_trash_can.ino
+│   │
+│   └── python backend/
+│       ├── templates/
+│       │   ├── base.html
+│       │   ├── login.html
+│       │   ├── logs.html
+│       │   ├── main.html
+│       │   └── manage_user.html
+│       │
+│       ├── connector.py
+│       ├── dashboard_server.py
+│       ├── db_server.py
+│       ├── session.db
+│       └── trashbin.db
+│
+├── 프로젝트_3_군집 자율주행 피킹로봇/
+│   ├── RobotArmCase.ino
+│   ├── RobotArm_MQTT 통신.docx
+│   ├── arm_keyboard.py
+│   ├── mqtt_gateway_lite.py
+│   └── pip install pyserial, paho-mqtt.docx
+│
+├── IdeaProjects.zip
+├── README.md
+├── group4_ws.zip
+├── index.html
+├── portfolio-pdf.css
+├── portfolio-pdf.html
+├── project-air-robot.html
+├── project-smart-bin.html
+├── script.js
+├── style.css
+└── 안효민_포트폴리오.pdf
 ```
 
 ## 실행
